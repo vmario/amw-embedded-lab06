@@ -1,0 +1,41 @@
+{
+    "configurations": [
+        {
+            "name": "ATmega32A",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${config:toolchain}/avr/include",
+                "${config:toolchain}/lib/gcc/avr/7.3.0/include"
+            ],
+            "defines": [
+                "__DOXYGEN__",
+                "__AVR_ATmega32A__"
+            ]
+        },
+        {
+            "name": "ATmega644P",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${config:toolchain}/avr/include",
+                "${config:toolchain}/lib/gcc/avr/7.3.0/include"
+            ],
+            "defines": [
+                "__DOXYGEN__",
+                "__AVR_ATmega644P__"
+            ]
+        },
+        {
+            "name": "ATmega1284P",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${config:toolchain}/avr/include",
+                "${config:toolchain}/lib/gcc/avr/7.3.0/include"
+            ],
+            "defines": [
+                "__DOXYGEN__",
+                "__AVR_ATmega1284P__"
+            ]
+        }
+    ],
+    "version": 4
+}
