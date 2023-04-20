@@ -11,9 +11,9 @@ header-includes: |
   \usepackage{gensymb}
 ...
 
-> When you finally understand what you are doing, things will go right.
+> If it doesn't have to produce correct results, I can make it arbitrarily fast.
 >
-> — _Bill Fairbank_
+> — _Gerald M. Weinberg_
 
 # Cel ćwiczenia
 
