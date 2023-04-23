@@ -1,7 +1,7 @@
 .PHONY: all clean
 
 TARGET = manual.pdf
-SOURCE = manual.md
+SOURCE = manual.md rotary-encoder-internal-structure.png encoder-timing.svg
 
 all: $(TARGET)
 
