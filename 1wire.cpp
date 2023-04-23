@@ -8,9 +8,12 @@
 
 #include "1wire.hpp"
 
-#include "1wirePinout.hpp"
-
 #include <util/delay.h>
+#include <avr/io.h>
+
+#define WIRE_1_DIR DDRD ///< Rejestr kierunku.
+#define WIRE_1_PIN PIND ///< Rejestr wejściowy.
+#define WIRE_1_DATA _BV(PD0) ///< Maska pinu danych.
 
 /**
  * Timingi magistrali 1-Wire.
