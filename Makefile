@@ -1,10 +1,8 @@
 .PHONY: clean build all program reset sizebefore sizeafter
 
-MCU_TARGET_ATmega32A = atmega32a
 MCU_TARGET_ATmega644P = atmega644p
 MCU_TARGET_ATmega1284P = atmega1284p
 
-FUSES_ATmega32A = -U hfuse:w:0xd9:m -U lfuse:w:0xe4:m
 FUSES_ATmega644P = -U hfuse:w:0xd9:m -U lfuse:w:0xe2:m -U efuse:w:0xff:m
 FUSES_ATmega1284P = -U hfuse:w:0xd9:m -U lfuse:w:0xe2:m -U efuse:w:0xff:m
 
