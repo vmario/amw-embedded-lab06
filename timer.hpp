@@ -24,5 +24,5 @@ struct SystemTick {
 	 * 
 	 * Jeżeli flaga została ustawiona, jest czyszczona.
 	 */
-	bool checkAndClear() const;
+	bool pop() const;
 };

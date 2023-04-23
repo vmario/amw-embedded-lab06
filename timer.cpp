@@ -29,22 +29,16 @@ static constexpr uint8_t TIMER0_PRESCALER_256 = _BV(CS02);
 static constexpr uint8_t TIMER0_OCR_TICK = 250;
 
 /**
- * Częstotliwość taktowania uzyskiwana z Timer/Counter0. [Hz]
+ * Liczba ticków timera, co ile występuje tick systemowy 1Hz.
  */
 static constexpr uint8_t SYSTEM_TICK_INTERVAL = 125;
 
 static volatile bool expired; ///< Czy timer ustawił flagę?
 
 /**
- * Obsługa przerwania TIMER0_COMP.
+ * Obsługa przerwania TIMER0_COMPA.
  */
-#if defined __AVR_ATmega32A__
-ISR(TIMER0_COMP_vect)
-#elif defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284P__)
 ISR(TIMER0_COMPA_vect)
-#else
-#error Niezdefiniowany typ mikrokontrolera.
-#endif
 {
 	static uint32_t interval;
 	if (++interval > SYSTEM_TICK_INTERVAL) {
@@ -55,23 +49,13 @@ ISR(TIMER0_COMPA_vect)
 
 void SystemTick::init() const
 {
-#if defined __AVR_ATmega32A__
-	TCCR0 = TIMER0_CTC | TIMER0_PRESCALER_256;
-	OCR0 = TIMER0_OCR_TICK;
-	TIMSK = _BV(OCIE0);
-#elif defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284P__)
 	TCCR0A = TIMER0_CTC;
 	TCCR0B = TIMER0_PRESCALER_256;
 	OCR0A = TIMER0_OCR_TICK;
 	TIMSK0 = _BV(OCIE0A);
-#else
-#error Niezdefiniowany typ mikrokontrolera.
-#endif
-
-	sei();
 }
 
-bool SystemTick::checkAndClear() const
+bool SystemTick::pop() const
 {
 	bool status;
 	ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
